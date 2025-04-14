@@ -28,3 +28,5 @@ To delete the .json file using "D" command:
 - os.path.exists(user_entered_path_that_should_be_parsed)
 - os.remove(user_entered_path_that_should_be_parsed)
 
+Should have quotation marks around file paths with whitespaces
+- the example in te D command doesn't because there are no whitespaces
