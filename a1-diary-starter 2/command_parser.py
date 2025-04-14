@@ -17,8 +17,14 @@ def path_validity_checker(command, path_name):
     Checks if the path exists, and prints messages according to the command
     """
     handled_path_name = Path(path_name)
+    parsed_handled_path_name = shlex.split(path_name)
     if command == "C":
         if not os.path.exists(handled_path_name):
+            print("ERROR")
+    elif command == "D":
+        if not parsed_handled_path_name[-1].endswith(".json"):
+            print("ERROR")
+        elif not os.path.exists(handled_path_name):
             print("ERROR")
     return False
 
@@ -51,13 +57,13 @@ def command_handler(user_command_input):
             print(f"{p} CREATED")
             break
         elif command == "D":
+            path_validity_checker("D", specified_path)
             if os.path.exists(specified_path):
                 os.remove(specified_path)
                 print(f"{specified_path} DELETED")
-            else:
-                print("ERROR")
             break
         # elif command == "O":
+
 
 
     return False
