@@ -21,12 +21,12 @@ def path_validity_checker(command, path_name):
     if command == "C":
         if not os.path.exists(handled_path_name):
             print("ERROR")
-    elif command == "D":
+    elif command == "D" or "O":
         if not parsed_handled_path_name[-1].endswith(".json"):
             print("ERROR")
         elif not os.path.exists(handled_path_name):
             print("ERROR")
-    return False
+    return False  # to break out of the function
 
 # C "/home/john/ics 32/my notebooks" -n my_diary
 def command_handler(user_command_input):
@@ -62,7 +62,14 @@ def command_handler(user_command_input):
                 os.remove(specified_path)
                 print(f"{specified_path} DELETED")
             break
-        # elif command == "O":
+        elif command == "O":
+            p = Path(specified_path)  # wrap the specified_path which is a .json here
+            username = input("")
+            password = input("")
+            with open(p) as user_file:
+                file_contents = user_file.read()
+            print(file_contents)
+
 
 
 

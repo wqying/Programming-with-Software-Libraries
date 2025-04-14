@@ -30,3 +30,8 @@ To delete the .json file using "D" command:
 
 Should have quotation marks around file paths with whitespaces
 - the example in te D command doesn't because there are no whitespaces
+
+Importing json?
+- not necessarily needed because this is done in the notebook.py module
+- already. Students should be able to write code that reads from the .json
+- file without having to import json.
