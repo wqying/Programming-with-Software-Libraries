@@ -1,0 +1,30 @@
+Difference between shlex.split and default split:
+- shlex.split(): respects quotes and escape characters
+- split(): will just split your string brainlessly unless you specify .split(",") etc
+- both will split the contents of the string into elements in a list
+
+About the pathlib module:
+- helps handle different paths for different operating systems (like MacOS and Windows)
+- from pathlib import Path is sufficient in most cases
+p = Path(".")
+p.exists(): check if path exists
+p.is_file(): check to see if file
+p.is_dir(): check to see if directory
+p.mkdir(parents=True, exist_ok=True)
+new_path = p / 'subdir' / 'file.txt': joining paths
+
+How to organize modules:
+1. notebook.py has helper classes and methods that you should use
+2. command_parser.py is where you should write your parsing functions
+3. a1.py is your main module where you run stuff
+
+Errors you should catch in your code:
+- NotebookFileError: put this where you see fit! It is meant to be in a try-except block
+- IncorrectNotebookError: put this where you see fit!
+    - Deserializing means converting from a file that we can see into computer bytes
+
+To delete the .json file using "D" command:
+- import os (might have to check with TA to see if this is legal)
+- os.path.exists(user_entered_path_that_should_be_parsed)
+- os.remove(user_entered_path_that_should_be_parsed)
+
