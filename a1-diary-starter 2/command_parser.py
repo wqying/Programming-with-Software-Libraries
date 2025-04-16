@@ -63,12 +63,18 @@ def command_handler(user_command_input):
                 print(f"{specified_path} DELETED")
             break
         elif command == "O":
-            p = Path(specified_path)  # wrap the specified_path which is a .json here
+            path_validity_checker("O", specified_path)
+            # don't need Path() bc the .load() does it for us
             username = input("")
             password = input("")
-            with open(p) as user_file:
-                file_contents = user_file.read()
-            print(file_contents)
+            bio = ""  # empty string placeholder
+            new_notebook = Notebook(username, password, bio)
+            new_notebook.load(specified_path)
+            print("Notebook loaded.")
+            print(new_notebook.username)
+            print(new_notebook.bio)
+
+            break
 
 
 
