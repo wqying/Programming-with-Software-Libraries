@@ -21,12 +21,23 @@ def path_validity_checker(command, path_name):
     if command == "C":
         if not os.path.exists(handled_path_name):
             print("ERROR")
-    elif command == "D" or "O":
+            return False
+    elif command == "D":
+        print(parsed_handled_path_name, "hi")
         if not parsed_handled_path_name[-1].endswith(".json"):
             print("ERROR")
+            return False
         elif not os.path.exists(handled_path_name):
             print("ERROR")
-    return False  # to break out of the function
+            return False
+    elif command == "O":
+        if not parsed_handled_path_name[-1].endswith(".json"):
+            print("ERROR")
+            return False
+        elif not os.path.exists(handled_path_name):
+            print("ERROR")
+            return False
+    return True
 
 # C "/home/john/ics 32/my notebooks" -n my_diary
 def command_handler(user_command_input):
@@ -63,21 +74,23 @@ def command_handler(user_command_input):
                 print(f"{specified_path} DELETED")
             break
         elif command == "O":
-            path_validity_checker("O", specified_path)
-            # don't need Path() bc the .load() does it for us
-            username = input("")
-            password = input("")
-            bio = ""  # empty string placeholder
-            new_notebook = Notebook(username, password, bio)
-            new_notebook.load(specified_path)
-            print("Notebook loaded.")
-            print(new_notebook.username)
-            print(new_notebook.bio)
-
-            break
-
-
-
+            if not path_validity_checker("O", specified_path):
+                break
+            else:
+                print(specified_path)
+                # don't need Path() bc the .load() does it for us
+                username = input("")
+                password = input("")
+                bio = ""  # empty string placeholder
+                new_notebook = Notebook(username, password, bio)
+                new_notebook.load(specified_path)
+                if username != new_notebook.username or password != new_notebook.password:
+                    print("ERROR")
+                else:
+                    print("Notebook loaded.")
+                    print(new_notebook.username)
+                    print(new_notebook.bio)
+                break
 
     return False
 
