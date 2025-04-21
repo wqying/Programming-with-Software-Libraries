@@ -5,7 +5,7 @@
 # NAME: Luna Snow
 # EMAIL: lsdagoat@uci.edu
 # STUDENT ID: 123456789
-# test
+# test, unfinished
 
 
 from command_parser import command_handler
