@@ -10,7 +10,7 @@
 
 from command_parser import command_handler
 
-
+# if command E is issued before any C or O is issued, program should print ERROR
 
 
 if __name__ == "__main__":

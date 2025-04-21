@@ -43,9 +43,18 @@ def command_handler(user_command_input):
     parsed_input = (shlex.split(user_command_input))
     command = parsed_input[0]
     specified_path = parsed_input[1]
+    flag_c_o = False
 
     while True:
-        if command == "C" and parsed_input[2] == "-n":
+        if command == "E" or command == "P":  # illegal if E or P is used before anything else
+            if not flag_c_o:
+                print("ERROR")
+                break
+            else:
+                command_e_and_p(command)
+
+        elif command == "C" and parsed_input[2] == "-n":
+            flag_c_o = True
             diary_name = parsed_input[3]
             new_diary_path = specified_path + "/" + diary_name + ".json"
             p = Path(new_diary_path)
@@ -88,8 +97,23 @@ def command_handler(user_command_input):
                     print(new_notebook.username)
                     print(new_notebook.bio)
                 break
-
     return False
+
+def command_e_and_p(command_e_or_p):  # use this in the C and O commands
+    options_list = ["-usr", "-pwd", "-bio", "-add", "-del", "-diaries", "-diary [ID]", "-all"]
+    e_options = options_list[:5]
+    p_options = options_list[5:8]
+    user_input_e_or_p = input("")
+    split_input_e_and_p = user_input_e_or_p.split()
+    # E command:
+    if command_e_or_p == "E":
+        user_input_e_option_list = []
+        for inputs in split_input_e_and_p:
+            if inputs in e_options:
+                user_input_e_option_list.append(inputs)
+
+
+
 
 
 
