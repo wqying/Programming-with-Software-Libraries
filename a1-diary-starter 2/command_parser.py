@@ -96,8 +96,7 @@ def command_handler(user_command_input):
                     print("Notebook loaded.")
                     print(new_notebook.username)
                     print(new_notebook.bio)
-                break
-    return False
+                return new_notebook
 
 def command_e_and_p(command_e_or_p):  # use this in the C and O commands
     options_list = ["-usr", "-pwd", "-bio", "-add", "-del", "-diaries", "-diary [ID]", "-all"]
@@ -111,6 +110,8 @@ def command_e_and_p(command_e_or_p):  # use this in the C and O commands
         for inputs in split_input_e_and_p:
             if inputs in e_options:
                 user_input_e_option_list.append(inputs)
+                # if "-usr" in user_input_e_option_list:
+
 
 
 
