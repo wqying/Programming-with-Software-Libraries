@@ -43,7 +43,7 @@ class Note:
 # ---------------------
 from pathlib import Path
 
-NOTES_PATH = "."
+NOTES_PATH = ".."
 NOTES_FILE = "pynote.txt"
 
 def print_notes(notes:list[str]):

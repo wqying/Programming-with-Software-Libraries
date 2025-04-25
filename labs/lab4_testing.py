@@ -4,7 +4,7 @@ This program enables a user to input short one line notes and have them stored i
 
 from pathlib import Path
 
-NOTES_PATH = "."
+NOTES_PATH = ".."
 NOTES_FILE = "pynote.txt"
 
 def is_int(val):
