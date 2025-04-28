@@ -1,7 +1,7 @@
 # This module handles the game logic of Dr Mario
 
 
-
+# Supported commands
 
 
 class CurrentState:

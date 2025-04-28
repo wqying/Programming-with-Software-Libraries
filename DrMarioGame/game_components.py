@@ -7,6 +7,7 @@
 # two connected halve (cells) possessing red yellow or blue
 # can be one or two color
 # can be horizontal or vertical
+# [ R ]
 
 # Virus:
 # can be red yellow or blue
