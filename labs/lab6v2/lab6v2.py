@@ -39,7 +39,7 @@ class Bookmarker(Note):
         # while introducing custom operations that meet the needs of our program.
         if url.startswith("http"):
             # TODO add call to parent class here
-            Note.save_note(self, url)
+            self.save_note(url)
             # super().save_note(url)
         else:
             raise ValueError("The value assigned to the url parameter is not valid.")
@@ -62,7 +62,7 @@ class Bookmarker(Note):
             pass
         else:
             # TODO add call to parent class here to remove the url
-            Note.remove_note(self, id)
+            self.remove_note(id)
     
     def remove_by_id(self, url_id:str):
         """
@@ -74,7 +74,7 @@ class Bookmarker(Note):
         if self._is_int(url_id):
             id = int(url_id)
             # TODO add call to parent class here to remove the url
-            Note.remove_note(self, id)
+            self.remove_note(id)
 
     def find(self, keyword:str) -> list[str]:
         """
@@ -95,7 +95,7 @@ class Bookmarker(Note):
         """
         if self._is_int(url_id):
             id = int(url_id)
-            url = Note.read_notes(self)[id]
+            url = self.read_notes()[id]
             # TODO add call to parent class here to get the url from memory using id
             webbrowser.open(url)
         else:
