@@ -2,6 +2,7 @@
 
 
 from ui import print_grid
+from game_logic import CurrentState, is_level_cleared
 
 
 # def run_game():
@@ -15,7 +16,11 @@ from ui import print_grid
 
 
 if __name__ == "__main__":
-    rows = input("")
-    cols = input("")
-    game_type = input("")  # EMPTY or CONTENTS
-    print_grid(rows, cols)
+    # shell program start
+    rows = int(input(""))
+    cols = int(input(""))
+    game_type = str(input(""))  # EMPTY or CONTENTS
+    print_grid(rows, cols, game_type)
+    game_start = CurrentState()
+    is_level_cleared(game_start)
+

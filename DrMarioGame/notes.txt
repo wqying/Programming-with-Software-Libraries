@@ -1,0 +1,4 @@
+gameplay grid:
+- rows (at least 4) x columns (at least 4)
+- 2D "matrix" implementation
+    - nested for loops
