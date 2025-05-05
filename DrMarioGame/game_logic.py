@@ -9,8 +9,6 @@ def is_level_cleared(game_object):
     else:
         pass
 
-# Supported commands
-
 
 class CurrentState:
     # a method to get the number of rows/columns in your field
@@ -25,3 +23,20 @@ class CurrentState:
         determines if the field contains any viruses
         """
         return self.virus
+
+
+# Supported commands
+def blank_line_command():
+    """
+    this command represents passage of time in the game.
+    if there is a faller currently on the field, it falls down one cell
+    if there is a faller that has landed, it freezes
+    if there are capsule cells with empty cells below, gravity is applied one cell at a time
+    """
+    pass
+
+def F_command():
+    """
+    example: F R Y (creates a faller with a red left segment and a yellow right segment.
+    """
+    pass

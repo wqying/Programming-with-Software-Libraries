@@ -3,6 +3,15 @@
 # Field: grid of cells, each cell is occupied by one half of a vitamin capsule
 # or a virus, or an empty space
 
+class Capsule:
+    def vitamin(self):
+        pass
+
+    def virus(self):
+        pass
+
+
+
 # Vitamin Capsule:
 # two connected halve (cells) possessing red yellow or blue
 # can be one or two color
